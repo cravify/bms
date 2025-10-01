@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bethel Mission School, Anuppur</title>
+    <meta name="description" content="Learn about Bethel Mission School's mission, vision, and values. Discover our journey of excellence in education since 1986.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Us - Bethel Mission School, Anuppur">
+    <meta property="og:description" content="Discover our mission, vision, and journey of educational excellence">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--glass-light);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 2rem;
+            margin: 0 2rem;
+            position: relative;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .principal-message {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+        
+        .principal-image {
+            width: 100%;
+            height: 300px;
+            background: var(--glass-light);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 3rem;
+            }
+            
+            .timeline-year {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+            
+            .timeline-content {
+                margin: 0;
+                padding: 1.5rem;
+            }
+            
+            .principal-message {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>Bethel Mission School</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="navHome">Home</a></li>
+                <li><a href="about.html" data-translate="navAbout">About</a></li>
+                <li><a href="academics.html" data-translate="navAcademics">Academics</a></li>
+                <li><a href="admission.html" data-translate="navAdmissions">Admissions</a></li>
+                <li><a href="gallery.html" data-translate="navGallery">Gallery</a></li>
+                <li><a href="blog.html" data-translate="navEvents">Events</a></li>
+                <li><a href="contact.html" data-translate="navContact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-tools">
+                <button class="theme-toggle glass" aria-label="Toggle theme">
+                    <span>🌙</span>
+                </button>
+                <button class="lang-toggle btn btn-outline" data-translate="langToggle">
+                    HI
+                </button>
+                <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1 class="hero-title">About Us</h1>
+            <p class="hero-subtitle">Our Journey of Excellence in Education</p>
+            
+            <div class="hero-card glass" style="max-width: 600px;">
+                <p>Bethel Mission School, Anuppur, has been a beacon of educational excellence since 1986. We believe in nurturing not just minds, but hearts and souls, creating well-rounded individuals who will light up the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission, Vision, Values Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Our Foundation</h2>
+            <p class="section-subtitle loading">The principles that guide our educational philosophy</p>
+            
+            <div class="mission-vision-grid">
+                <div class="card glass loading">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-text">To provide quality education that nurtures intellectual, social, emotional, and physical development. We aim to create responsible global citizens who are equipped to face life's challenges with confidence and compassion.</p>
+                </div>
+                
+                <div class="card glass loading">
+                    <span class="card-icon">👁️</span>
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="card-text">To be a leading educational institution that transforms lives through innovative teaching methods, character building, and holistic development, preparing students to excel in a rapidly changing world.</p>
+                </div>
+                
+                <div class="card glass loading">
+                    <span class="card-icon">💎</span>
+                    <h3 class="card-title">Our Values</h3>
+                    <p class="card-text">Integrity, Excellence, Compassion, Respect, and Responsibility form the core of our value system. We instill these values in every aspect of our educational approach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal's Message -->
+    <section class="section" style="background: var(--glass-light); margin: 3rem 0; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title loading">Principal's Message</h2>
+            
+            <div class="principal-message loading">
+                <div class="principal-image">
+                    👩‍🏫
+                </div>
+                <div>
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Mrs. Sarah Johnson</h3>
+                    <p style="margin-bottom: 1rem; opacity: 0.9;">Principal, Bethel Mission School</p>
+                    <p style="line-height: 1.8; opacity: 0.9;">
+                        "Welcome to Bethel Mission School, where we believe that every child is a unique gift with unlimited potential. Our commitment is to provide a nurturing environment that fosters academic excellence, character development, and lifelong learning.
+                        <br><br>
+                        Over the years, we have seen our students grow into confident, compassionate, and capable individuals who make meaningful contributions to society. This transformation is possible through our dedicated faculty, supportive parents, and the collective effort of our school community.
+                        <br><br>
+                        We invite you to join us in this journey of discovery, growth, and excellence. Together, we can light the path to a brighter future for our children."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Our Journey</h2>
+            <p class="section-subtitle loading">Milestones that shaped our institution</p>
+            
+            <div class="timeline">
+                <div class="timeline-item loading">
+                    <div class="timeline-content glass">
+                        <h3 style="color: var(--white); margin-bottom: 0.5rem;">Foundation</h3>
+                        <p>Bethel Mission School was established with a vision to provide quality education to the community of Anuppur. Started with just 50 students and 5 teachers.</p>
+                    </div>
+                    <div class="timeline-year">1986</div>
+                </div>
+                
+                <div class="timeline-item loading">
+                    <div class="timeline-content glass">
+                        <h3 style="color: var(--white); margin-bottom: 0.5rem;">First Batch</h3>
+                        <p>Our first batch of Class 10 students appeared for board examinations with a 100% pass rate, establishing our reputation for academic excellence.</p>
+                    </div>
+                    <div class="timeline-year">1991</div>
+                </div>
+                
+                <div class="timeline-item loading">
+                    <div class="timeline-content glass">
+                        <h3 style="color: var(--white); margin-bottom: 0.5rem;">Expansion</h3>
+                        <p>School expanded to include Class 11 and 12 with Science and Commerce streams. New science laboratories and library were inaugurated.</p>
+                    </div>
+                    <div class="timeline-year">1998</div>
+                </div>
+                
+                <div class="timeline-item loading">
+                    <div class="timeline-content glass">
+                        <h3 style="color: var(--white); margin-bottom: 0.5rem;">Digital Initiative</h3>
+                        <p>Introduction of smart classrooms and computer-aided learning. School became one of the first in the region to embrace digital education.</p>
+                    </div>
+                    <div class="timeline-year">2005</div>
+                </div>
+                
+                <div class="timeline-item loading">
+                    <div class="timeline-content glass">
+                        <h3 style="color: var(--white); margin-bottom: 0.5rem;">Sports Excellence</h3>
+                        <p>Establishment of modern sports facilities and introduction of specialized sports training programs. Our students started winning at district and state levels.</p>
+                    </div>
+                    <div class="timeline-year">2012</div>
+                </div>
+                
+                <div class="timeline-item loading">
+                    <div class="timeline-content glass">
+                        <h3 style="color: var(--white); margin-bottom: 0.5rem;">25 Years of Excellence</h3>
+                        <p>Celebrated silver jubilee with over 2000 students and 3500 alumni. Received recognition as one of the best schools in the region.</p>
+                    </div>
+                    <div class="timeline-year">2016</div>
+                </div>
+                
+                <div class="timeline-item loading">
+                    <div class="timeline-content glass">
+                        <h3 style="color: var(--white); margin-bottom: 0.5rem;">Modern Infrastructure</h3>
+                        <p>Inauguration of new academic block with state-of-the-art facilities including modern laboratories, auditorium, and sports complex.</p>
+                    </div>
+                    <div class="timeline-year">2022</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section">
+        <div class="container">
+            <div class="counter-container">
+                <div class="counter-item glass loading">
+                    <span class="counter-number" data-target="39">0</span>
+                    <span class="counter-label" data-translate="yearsExperience">Years of Excellence</span>
+                </div>
+                
+                <div class="counter-item glass loading">
+                    <span class="counter-number" data-target="2400">0</span>
+                    <span class="counter-label" data-translate="students">Students</span>
+                </div>
+                
+                <div class="counter-item glass loading">
+                    <span class="counter-number" data-target="3500">0</span>
+                    <span class="counter-label" data-translate="alumni">Alumni</span>
+                </div>
+                
+                <div class="counter-item glass loading">
+                    <span class="counter-number" data-target="45">0</span>
+                    <span class="counter-label" data-translate="teachers">Expert Teachers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container">
+            <div class="glass text-center loading" style="padding: 4rem 2rem;">
+                <h2 style="margin-bottom: 1rem;">Join Our Legacy</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Be part of our continuing journey of excellence. Admissions open for 2026-27.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                        Apply Now
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bethel Mission School</h3>
+                    <p>Lighted to Lighten - Nurturing minds, building character since 1986.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admission.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 Anuppur, Madhya Pradesh, India</li>
+                        <li>📞 +91 12345 67890</li>
+                        <li>✉️ info@bethelschoolanuppur.edu.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get latest updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bethel Mission School, Anuppur. All rights reserved. Made with ❤️ by Creda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

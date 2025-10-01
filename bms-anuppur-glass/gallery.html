@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Bethel Mission School, Anuppur</title>
+    <meta name="description" content="Explore our school gallery featuring events, sports, cultural activities, and classroom moments.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gallery - Bethel Mission School, Anuppur">
+    <meta property="og:description" content="Photo gallery of school events, activities, and achievements">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-light);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: var(--radius);
+            color: var(--white);
+            cursor: pointer;
+            transition: all var(--trans);
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--glass-blue);
+            border-color: rgba(0, 51, 160, 0.30);
+            transform: translateY(-2px);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--trans);
+            aspect-ratio: 4/3;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--trans);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform var(--trans);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .gallery-overlay p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--trans);
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--glass-light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .lightbox img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--red);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--glass-light);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--trans);
+        }
+        
+        .lightbox-nav:hover {
+            background: var(--glass-blue);
+        }
+        
+        .lightbox-prev {
+            left: 2rem;
+        }
+        
+        .lightbox-next {
+            right: 2rem;
+        }
+        
+        .video-section {
+            margin: 4rem 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .video-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            transition: all var(--trans);
+        }
+        
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all var(--trans);
+        }
+        
+        .video-item:hover .video-play-btn {
+            background: var(--blue);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .lightbox-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>Bethel Mission School</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="navHome">Home</a></li>
+                <li><a href="about.html" data-translate="navAbout">About</a></li>
+                <li><a href="academics.html" data-translate="navAcademics">Academics</a></li>
+                <li><a href="admission.html" data-translate="navAdmissions">Admissions</a></li>
+                <li><a href="gallery.html" data-translate="navGallery">Gallery</a></li>
+                <li><a href="blog.html" data-translate="navEvents">Events</a></li>
+                <li><a href="contact.html" data-translate="navContact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-tools">
+                <button class="theme-toggle glass" aria-label="Toggle theme">
+                    <span>🌙</span>
+                </button>
+                <button class="lang-toggle btn btn-outline" data-translate="langToggle">
+                    HI
+                </button>
+                <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1 class="hero-title">Gallery</h1>
+            <p class="hero-subtitle">Moments That Define Our Journey</p>
+            
+            <div class="hero-card glass" style="max-width: 600px;">
+                <p>Explore the vibrant life at Bethel Mission School through our collection of photographs and videos capturing the essence of learning, growth, and achievement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="section">
+        <div class="container">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="sports">Sports</button>
+                <button class="filter-btn" data-filter="cultural">Cultural</button>
+                <button class="filter-btn" data-filter="classroom">Classroom</button>
+                <button class="filter-btn" data-filter="achievements">Achievements</button>
+            </div>
+            
+            <!-- Photo Gallery -->
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Events -->
+                <div class="gallery-item" data-category="events">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/1d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Annual Day Celebration 2024">
+                    <div class="gallery-overlay">
+                        <h4>Annual Day Celebration 2024</h4>
+                        <p>Grand cultural program showcasing student talents</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="events">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/2d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Independence Day Celebration">
+                    <div class="gallery-overlay">
+                        <h4>Independence Day Celebration</h4>
+                        <p>Patriotic fervor and cultural performances</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="events">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/3d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Science Exhibition 2024">
+                    <div class="gallery-overlay">
+                        <h4>Science Exhibition 2024</h4>
+                        <p>Innovative projects by our young scientists</p>
+                    </div>
+                </div>
+                
+                <!-- Sports -->
+                <div class="gallery-item" data-category="sports">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/4d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Annual Sports Meet">
+                    <div class="gallery-overlay">
+                        <h4>Annual Sports Meet</h4>
+                        <p>Track and field events competition</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="sports">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/5d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Basketball Tournament">
+                    <div class="gallery-overlay">
+                        <h4>Basketball Tournament</h4>
+                        <p>Inter-house basketball championship</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="sports">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/6d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Yoga Day Celebration">
+                    <div class="gallery-overlay">
+                        <h4>International Yoga Day</h4>
+                        <p>Mindfulness and physical wellness</p>
+                    </div>
+                </div>
+                
+                <!-- Cultural -->
+                <div class="gallery-item" data-category="cultural">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/7d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Diwali Celebrations">
+                    <div class="gallery-overlay">
+                        <h4>Diwali Celebrations</h4>
+                        <p>Festival of lights and joy</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="cultural">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/8d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Christmas Program">
+                    <div class="gallery-overlay">
+                        <h4>Christmas Program</h4>
+                        <p>Carols and festive celebrations</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="cultural">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/9d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Folk Dance Competition">
+                    <div class="gallery-overlay">
+                        <h4>Folk Dance Competition</h4>
+                        <p>Traditional dance performances</p>
+                    </div>
+                </div>
+                
+                <!-- Classroom -->
+                <div class="gallery-item" data-category="classroom">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/ad7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Smart Classroom Learning">
+                    <div class="gallery-overlay">
+                        <h4>Smart Classroom Learning</h4>
+                        <p>Interactive digital education</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="classroom">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/bd7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Science Laboratory">
+                    <div class="gallery-overlay">
+                        <h4>Science Laboratory</h4>
+                        <p>Hands-on experiments and learning</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="classroom">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/cd7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Library Reading Time">
+                    <div class="gallery-overlay">
+                        <h4>Library Reading Time</h4>
+                        <p>Cultivating reading habits</p>
+                    </div>
+                </div>
+                
+                <!-- Achievements -->
+                <div class="gallery-item" data-category="achievements">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/dd7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Award Ceremony">
+                    <div class="gallery-overlay">
+                        <h4>Award Ceremony</h4>
+                        <p>Recognizing academic excellence</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="achievements">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/ed7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Science Olympiad Winners">
+                    <div class="gallery-overlay">
+                        <h4>Science Olympiad Winners</h4>
+                        <p>National level competition success</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="achievements">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/fd7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="District Sports Champions">
+                    <div class="gallery-overlay">
+                        <h4>District Sports Champions</h4>
+                        <p>Inter-school tournament victory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section section">
+        <div class="container">
+            <h2 class="section-title loading">Video Gallery</h2>
+            <p class="section-subtitle loading">Experience the vibrant life at Bethel Mission School</p>
+            
+            <div class="video-grid">
+                <div class="video-item glass loading">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/gd7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="School Tour Video" class="video-thumbnail">
+                    <div class="video-play-btn">▶️</div>
+                    <div class="gallery-overlay">
+                        <h4>Virtual School Tour</h4>
+                        <p>Explore our campus and facilities</p>
+                    </div>
+                </div>
+                
+                <div class="video-item glass loading">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/hd7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Annual Day Video" class="video-thumbnail">
+                    <div class="video-play-btn">▶️</div>
+                    <div class="gallery-overlay">
+                        <h4>Annual Day Highlights</h4>
+                        <p>Cultural performances and celebrations</p>
+                    </div>
+                </div>
+                
+                <div class="video-item glass loading">
+                    <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/id7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Sports Day Video" class="video-thumbnail">
+                    <div class="video-play-btn">▶️</div>
+                    <div class="gallery-overlay">
+                        <h4>Sports Day Excitement</h4>
+                        <p>Track and field competition moments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container">
+            <div class="glass text-center loading" style="padding: 4rem 2rem;">
+                <h2 style="margin-bottom: 1rem;">Want to be part of our story?</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Join Bethel Mission School and create your own memorable moments with us.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                        Apply Now
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav lightbox-prev" onclick="previousImage()">‹</button>
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <img id="lightbox-image" src="" alt="">
+            <div id="lightbox-caption" style="margin-top: 1rem; color: white;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bethel Mission School</h3>
+                    <p>Lighted to Lighten - Nurturing minds, building character since 1986.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admission.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 Anuppur, Madhya Pradesh, India</li>
+                        <li>📞 +91 12345 67890</li>
+                        <li>✉️ info@bethelschoolanuppur.edu.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get latest updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bethel Mission School, Anuppur. All rights reserved. Made with ❤️ by Creda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Gallery functionality
+        let currentImageIndex = 0;
+        let filteredImages = [];
+        
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                filterGallery(filter);
+            });
+        });
+        
+        function filterGallery(filter) {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    item.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            updateFilteredImages();
+        }
+        
+        function updateFilteredImages() {
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            filteredImages = Array.from(document.querySelectorAll('.gallery-item')).filter(item => {
+                return activeFilter === 'all' || item.getAttribute('data-category') === activeFilter;
+            });
+        }
+        
+        // Lightbox functionality
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageIndex = filteredImages.indexOf(item);
+                openLightbox(item);
+            });
+        });
+        
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            const overlay = item.querySelector('.gallery-overlay');
+            
+            document.getElementById('lightbox-image').src = img.src;
+            document.getElementById('lightbox-caption').innerHTML = overlay.innerHTML;
+            document.getElementById('lightbox').classList.add('active');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+            const item = filteredImages[currentImageIndex];
+            const img = item.querySelector('img');
+            const overlay = item.querySelector('.gallery-overlay');
+            
+            document.getElementById('lightbox-image').src = img.src;
+            document.getElementById('lightbox-caption').innerHTML = overlay.innerHTML;
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+            const item = filteredImages[currentImageIndex];
+            const img = item.querySelector('img');
+            const overlay = item.querySelector('.gallery-overlay');
+            
+            document.getElementById('lightbox-image').src = img.src;
+            document.getElementById('lightbox-caption').innerHTML = overlay.innerHTML;
+        }
+        
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                previousImage();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
+            }
+        });
+        
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeLightbox();
+            }
+        });
+        
+        // Video functionality
+        document.querySelectorAll('.video-item').forEach(item => {
+            item.addEventListener('click', () => {
+                showNotification('Video player would open here', 'info');
+            });
+        });
+        
+        // Initialize filtered images
+        updateFilteredImages();
+    </script>
+</body>
+</html>

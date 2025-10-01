@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - Bethel Mission School, Anuppur</title>
+    <meta name="description" content="Stay updated with the latest news, events, and achievements at Bethel Mission School.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="News & Events - Bethel Mission School, Anuppur">
+    <meta property="og:description" content="Latest news, events, and achievements from our school community">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .blog-main {
+            min-height: 600px;
+        }
+        
+        .blog-sidebar {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: var(--radius);
+            background: var(--glass-light);
+            color: var(--white);
+            font-size: var(--font-size-base);
+        }
+        
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.60);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .blog-card {
+            margin-bottom: 2rem;
+            transition: all var(--trans);
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+        
+        .blog-content {
+            padding: 2rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: var(--font-size-sm);
+            opacity: 0.8;
+        }
+        
+        .blog-category {
+            background: var(--glass-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .blog-excerpt {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .blog-read-more {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--trans);
+        }
+        
+        .blog-read-more:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        .sidebar-section {
+            margin-bottom: 3rem;
+        }
+        
+        .sidebar-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--red);
+        }
+        
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .category-list a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: var(--glass-light);
+            border-radius: var(--radius);
+            transition: all var(--trans);
+        }
+        
+        .category-list a:hover {
+            background: var(--glass-blue);
+            transform: translateX(5px);
+        }
+        
+        .category-count {
+            background: var(--red);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .recent-post {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--glass-light);
+            border-radius: var(--radius);
+            transition: all var(--trans);
+            cursor: pointer;
+        }
+        
+        .recent-post:hover {
+            background: var(--glass-blue);
+            transform: translateX(5px);
+        }
+        
+        .recent-post-image {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            flex-shrink: 0;
+        }
+        
+        .recent-post-content h4 {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--white);
+            margin: 0 0 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .recent-post-date {
+            font-size: var(--font-size-xs);
+            opacity: 0.8;
+        }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: var(--glass-light);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            transition: all var(--trans);
+        }
+        
+        .tag:hover {
+            background: var(--glass-red);
+            transform: translateY(-2px);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 3rem 0;
+        }
+        
+        .page-btn {
+            padding: 0.75rem 1rem;
+            background: var(--glass-light);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: var(--radius);
+            color: var(--white);
+            cursor: pointer;
+            transition: all var(--trans);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+        }
+        
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--glass-blue);
+            border-color: rgba(0, 51, 160, 0.30);
+        }
+        
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .blog-sidebar {
+                position: static;
+            }
+            
+            .blog-title {
+                font-size: var(--font-size-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>Bethel Mission School</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="navHome">Home</a></li>
+                <li><a href="about.html" data-translate="navAbout">About</a></li>
+                <li><a href="academics.html" data-translate="navAcademics">Academics</a></li>
+                <li><a href="admission.html" data-translate="navAdmissions">Admissions</a></li>
+                <li><a href="gallery.html" data-translate="navGallery">Gallery</a></li>
+                <li><a href="blog.html" data-translate="navEvents">Events</a></li>
+                <li><a href="contact.html" data-translate="navContact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-tools">
+                <button class="theme-toggle glass" aria-label="Toggle theme">
+                    <span>🌙</span>
+                </button>
+                <button class="lang-toggle btn btn-outline" data-translate="langToggle">
+                    HI
+                </button>
+                <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1 class="hero-title">News & Events</h1>
+            <p class="hero-subtitle">Stay Updated with Our Community</p>
+            
+            <div class="hero-card glass" style="max-width: 600px;">
+                <p>Discover the latest happenings, achievements, and milestones at Bethel Mission School. From academic excellence to cultural celebrations, stay connected with our vibrant community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Main Blog Content -->
+                <div class="blog-main">
+                    <!-- Search Box -->
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search articles, events, news...">
+                        <button type="button" onclick="performSearch()">🔍</button>
+                    </div>
+                    
+                    <!-- Blog Posts -->
+                    <div class="blog-card glass loading">
+                        <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/1d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Annual Day Celebration" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Events</span>
+                                <span>📅 December 15, 2024</span>
+                                <span>⏱️ 5 min read</span>
+                            </div>
+                            <h3 class="blog-title">Annual Day Celebration 2024: A Spectacular Success</h3>
+                            <p class="blog-excerpt">Our annual day celebration was a magnificent showcase of talent, creativity, and academic excellence. The event featured cultural performances, award ceremonies, and inspiring speeches that highlighted our students' achievements throughout the year.</p>
+                            <a href="#" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card glass loading">
+                        <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/2d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Science Exhibition" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Academics</span>
+                                <span>📅 November 20, 2024</span>
+                                <span>⏱️ 4 min read</span>
+                            </div>
+                            <h3 class="blog-title">Science Exhibition 2024: Innovations That Inspire</h3>
+                            <p class="blog-excerpt">Our annual science exhibition showcased remarkable projects from students across all grades. From renewable energy solutions to robotics innovations, the exhibition demonstrated our commitment to fostering scientific curiosity and innovation.</p>
+                            <a href="#" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card glass loading">
+                        <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/3d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Sports Achievement" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Sports</span>
+                                <span>📅 October 10, 2024</span>
+                                <span>⏱️ 3 min read</span>
+                            </div>
+                            <h3 class="blog-title">District Sports Championship Victory</h3>
+                            <p class="blog-excerpt">Our school team emerged victorious at the District Sports Championship, winning multiple gold medals in track and field events. This achievement reflects our dedication to holistic development and sports excellence.</p>
+                            <a href="#" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card glass loading">
+                        <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/4d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Teacher's Day" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Cultural</span>
+                                <span>📅 September 5, 2024</span>
+                                <span>⏱️ 4 min read</span>
+                            </div>
+                            <h3 class="blog-title">Teachers' Day: Celebrating Our Mentors</h3>
+                            <p class="blog-excerpt">Students organized a heartwarming program to honor our dedicated teachers. The celebration included cultural performances, speeches, and expressions of gratitude that highlighted the special bond between teachers and students.</p>
+                            <a href="#" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card glass loading">
+                        <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/5d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Board Results" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Achievements</span>
+                                <span>📅 August 25, 2024</span>
+                                <span>⏱️ 3 min read</span>
+                            </div>
+                            <h3 class="blog-title">Outstanding Board Examination Results 2024</h3>
+                            <p class="blog-excerpt">Our Class X and XII students achieved exceptional results in the board examinations with a 100% pass rate. Several students secured district and state ranks, reflecting our commitment to academic excellence.</p>
+                            <a href="#" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card glass loading">
+                        <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/6d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Environmental Initiative" class="blog-image">
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Social</span>
+                                <span>📅 July 15, 2024</span>
+                                <span>⏱️ 5 min read</span>
+                            </div>
+                            <h3 class="blog-title">Environmental Awareness Drive: Green Future</h3>
+                            <p class="blog-excerpt">Our students initiated a comprehensive environmental awareness program including tree plantation, waste management workshops, and community clean-up drives. This initiative demonstrates our commitment to social responsibility.</p>
+                            <a href="#" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <a href="#" class="page-btn" disabled>‹ Previous</a>
+                        <a href="#" class="page-btn active">1</a>
+                        <a href="#" class="page-btn">2</a>
+                        <a href="#" class="page-btn">3</a>
+                        <a href="#" class="page-btn">4</a>
+                        <a href="#" class="page-btn">5</a>
+                        <a href="#" class="page-btn">Next ›</a>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="blog-sidebar">
+                    <!-- Categories -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="#">All Posts <span class="category-count">24</span></a></li>
+                            <li><a href="#">Events <span class="category-count">8</span></a></li>
+                            <li><a href="#">Academics <span class="category-count">6</span></a></li>
+                            <li><a href="#">Sports <span class="category-count">4</span></a></li>
+                            <li><a href="#">Cultural <span class="category-count">3</span></a></li>
+                            <li><a href="#">Achievements <span class="category-count">3</span></a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Recent Posts -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Recent Posts</h3>
+                        <div class="recent-post">
+                            <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/1d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Annual Day" class="recent-post-image">
+                            <div class="recent-post-content">
+                                <h4>Annual Day Celebration 2024</h4>
+                                <div class="recent-post-date">Dec 15, 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-post">
+                            <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/2d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Science Exhibition" class="recent-post-image">
+                            <div class="recent-post-content">
+                                <h4>Science Exhibition 2024</h4>
+                                <div class="recent-post-date">Nov 20, 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-post">
+                            <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/3d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Sports Achievement" class="recent-post-image">
+                            <div class="recent-post-content">
+                                <h4>District Sports Championship</h4>
+                                <div class="recent-post-date">Oct 10, 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="recent-post">
+                            <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/4d7533d3e1a8c3a0e7a0b3c7d8e9f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" alt="Teacher's Day" class="recent-post-image">
+                            <div class="recent-post-content">
+                                <h4>Teachers' Day Celebration</h4>
+                                <div class="recent-post-date">Sep 5, 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tags -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Popular Tags</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">Education</a>
+                            <a href="#" class="tag">Events</a>
+                            <a href="#" class="tag">Sports</a>
+                            <a href="#" class="tag">Culture</a>
+                            <a href="#" class="tag">Achievements</a>
+                            <a href="#" class="tag">Science</a>
+                            <a href="#" class="tag">Technology</a>
+                            <a href="#" class="tag">Environment</a>
+                            <a href="#" class="tag">Community</a>
+                            <a href="#" class="tag">Innovation</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Newsletter</h3>
+                        <p style="margin-bottom: 1rem; opacity: 0.9;">Subscribe to get the latest updates delivered to your inbox.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address" required style="margin-bottom: 1rem;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container">
+            <div class="glass text-center loading" style="padding: 4rem 2rem;">
+                <h2 style="margin-bottom: 1rem;">Stay Connected</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Never miss an update from our vibrant school community. Follow us on social media and subscribe to our newsletter.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn btn-primary">Subscribe to Newsletter</a>
+                    <a href="#" class="btn btn-outline">Follow on Social Media</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bethel Mission School</h3>
+                    <p>Lighted to Lighten - Nurturing minds, building character since 1986.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admission.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 Anuppur, Madhya Pradesh, India</li>
+                        <li>📞 +91 12345 67890</li>
+                        <li>✉️ info@bethelschoolanuppur.edu.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get latest updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bethel Mission School, Anuppur. All rights reserved. Made with ❤️ by Creda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Search functionality
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            blogCards.forEach(card => {
+                const title = card.querySelector('.blog-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+                const category = card.querySelector('.blog-category').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            if (searchTerm) {
+                showNotification(`Found ${document.querySelectorAll('.blog-card[style*="block"]').length} results for "${searchTerm}"`, 'info');
+            }
+        }
+        
+        // Search on Enter key
+        document.getElementById('search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Blog card click handlers
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.blog-title').textContent;
+                showNotification(`Opening article: "${title}"`, 'info');
+            });
+        });
+        
+        // Recent post click handlers
+        document.querySelectorAll('.recent-post').forEach(post => {
+            post.addEventListener('click', () => {
+                const title = post.querySelector('h4').textContent;
+                showNotification(`Opening article: "${title}"`, 'info');
+            });
+        });
+        
+        // Category click handlers
+        document.querySelectorAll('.category-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.textContent.split(' ')[0];
+                showNotification(`Filtering by category: ${category}`, 'info');
+                
+                // Filter blog posts by category
+                const blogCards = document.querySelectorAll('.blog-card');
+                blogCards.forEach(card => {
+                    const cardCategory = card.querySelector('.blog-category').textContent;
+                    if (category === 'All' || cardCategory === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Tag click handlers
+        document.querySelectorAll('.tag').forEach(tag => {
+            tag.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tagText = tag.textContent;
+                showNotification(`Filtering by tag: ${tagText}`, 'info');
+                
+                // Search for tag in blog posts
+                document.getElementById('search-input').value = tagText;
+                performSearch();
+            });
+        });
+        
+        // Pagination handlers
+        document.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (!btn.hasAttribute('disabled')) {
+                    const page = btn.textContent.trim();
+                    showNotification(`Loading page ${page}`, 'info');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

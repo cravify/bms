@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Bethel Mission School, Anuppur</title>
+    <meta name="description" content="Explore our comprehensive academic programs from primary to senior secondary levels with modern facilities and expert faculty.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Academics - Bethel Mission School, Anuppur">
+    <meta property="og:description" content="Comprehensive academic programs with modern facilities">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .tabs-container {
+            margin: 3rem 0;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 1rem 2rem;
+            background: var(--glass-light);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: var(--radius);
+            color: var(--white);
+            cursor: pointer;
+            transition: all var(--trans);
+            font-weight: 500;
+        }
+        
+        .tab-button:hover,
+        .tab-button.active {
+            background: var(--glass-blue);
+            border-color: rgba(0, 51, 160, 0.30);
+            transform: translateY(-2px);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .subject-card {
+            padding: 2rem;
+            text-align: center;
+            transition: all var(--trans);
+            cursor: pointer;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .subject-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .labs-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .lab-item {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lab-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--glass-blue);
+            opacity: 0;
+            transition: opacity var(--trans);
+        }
+        
+        .lab-item:hover::before {
+            opacity: 0.1;
+        }
+        
+        .achievement-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass-red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+        
+        .achievements-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>Bethel Mission School</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="navHome">Home</a></li>
+                <li><a href="about.html" data-translate="navAbout">About</a></li>
+                <li><a href="academics.html" data-translate="navAcademics">Academics</a></li>
+                <li><a href="admission.html" data-translate="navAdmissions">Admissions</a></li>
+                <li><a href="gallery.html" data-translate="navGallery">Gallery</a></li>
+                <li><a href="blog.html" data-translate="navEvents">Events</a></li>
+                <li><a href="contact.html" data-translate="navContact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-tools">
+                <button class="theme-toggle glass" aria-label="Toggle theme">
+                    <span>🌙</span>
+                </button>
+                <button class="lang-toggle btn btn-outline" data-translate="langToggle">
+                    HI
+                </button>
+                <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1 class="hero-title">Academics</h1>
+            <p class="hero-subtitle">Excellence in Education at Every Level</p>
+            
+            <div class="hero-card glass" style="max-width: 600px;">
+                <p>Our comprehensive academic programs are designed to nurture curiosity, critical thinking, and a lifelong love for learning. From primary to senior secondary, we provide a strong foundation for future success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Programs Tabs -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Our Academic Programs</h2>
+            <p class="section-subtitle loading">Comprehensive education from foundation to specialization</p>
+            
+            <div class="tabs-container">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="primary">Primary (I-V)</button>
+                    <button class="tab-button" data-tab="secondary">Secondary (VI-X)</button>
+                    <button class="tab-button" data-tab="senior">Senior Secondary (XI-XII)</button>
+                </div>
+                
+                <!-- Primary Section -->
+                <div id="primary" class="tab-content active">
+                    <div class="glass" style="padding: 2rem; margin-bottom: 2rem;">
+                        <h3 style="color: var(--white); margin-bottom: 1rem;">Primary Education (Classes I-V)</h3>
+                        <p style="margin-bottom: 2rem; opacity: 0.9;">Building strong foundations through play-based learning, creativity, and curiosity-driven exploration. Our primary program focuses on developing fundamental skills while nurturing natural inquisitiveness.</p>
+                        
+                        <div class="subject-grid">
+                            <div class="subject-card glass">
+                                <span class="subject-icon">📚</span>
+                                <h4>Language Arts</h4>
+                                <p>Reading, Writing, Literature</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">🔢</span>
+                                <h4>Mathematics</h4>
+                                <p>Numbers, Patterns, Logic</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">🌍</span>
+                                <h4>Environmental Studies</h4>
+                                <p>Nature, Society, Awareness</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">🎨</span>
+                                <h4>Creative Arts</h4>
+                                <p>Drawing, Music, Dance</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">🤸</span>
+                                <h4>Physical Education</h4>
+                                <p>Sports, Games, Fitness</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">💻</span>
+                                <h4>Digital Literacy</h4>
+                                <p>Basic Computer Skills</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Secondary Section -->
+                <div id="secondary" class="tab-content">
+                    <div class="glass" style="padding: 2rem; margin-bottom: 2rem;">
+                        <h3 style="color: var(--white); margin-bottom: 1rem;">Secondary Education (Classes VI-X)</h3>
+                        <p style="margin-bottom: 2rem; opacity: 0.9;">Developing analytical thinking, problem-solving skills, and subject specialization. Our secondary program prepares students for board examinations while fostering intellectual growth.</p>
+                        
+                        <div class="subject-grid">
+                            <div class="subject-card glass">
+                                <span class="subject-icon">📝</span>
+                                <h4>English Language</h4>
+                                <p>Literature & Grammar</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">🇮🇳</span>
+                                <h4>Hindi/Sanskrit</h4>
+                                <p>Language & Literature</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">🔬</span>
+                                <h4>Science</h4>
+                                <p>Physics, Chemistry, Biology</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">📊</span>
+                                <h4>Mathematics</h4>
+                                <p>Algebra, Geometry, Statistics</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">🗺️</span>
+                                <h4>Social Science</h4>
+                                <p>History, Geography, Civics</p>
+                            </div>
+                            
+                            <div class="subject-card glass">
+                                <span class="subject-icon">💻</span>
+                                <h4>Computer Science</h4>
+                                <p>Programming & Applications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Senior Secondary Section -->
+                <div id="senior" class="tab-content">
+                    <div class="glass" style="padding: 2rem; margin-bottom: 2rem;">
+                        <h3 style="color: var(--white); margin-bottom: 1rem;">Senior Secondary (Classes XI-XII)</h3>
+                        <p style="margin-bottom: 2rem; opacity: 0.9;">Specialized streams offering in-depth knowledge and career preparation. Students choose from Science, Commerce, or Arts streams based on their interests and career goals.</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                            <div class="glass" style="padding: 2rem;">
+                                <h4 style="color: var(--white); margin-bottom: 1rem;">🧪 Science Stream</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin: 0.5rem 0;">• Physics</li>
+                                    <li style="margin: 0.5rem 0;">• Chemistry</li>
+                                    <li style="margin: 0.5rem 0;">• Mathematics/Biology</li>
+                                    <li style="margin: 0.5rem 0;">• English Core</li>
+                                    <li style="margin: 0.5rem 0;">• Optional Subject</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="glass" style="padding: 2rem;">
+                                <h4 style="color: var(--white); margin-bottom: 1rem;">💼 Commerce Stream</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin: 0.5rem 0;">• Accountancy</li>
+                                    <li style="margin: 0.5rem 0;">• Business Studies</li>
+                                    <li style="margin: 0.5rem 0;">• Economics</li>
+                                    <li style="margin: 0.5rem 0;">• English Core</li>
+                                    <li style="margin: 0.5rem 0;">• Mathematics/Informatics</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="glass" style="padding: 2rem;">
+                                <h4 style="color: var(--white); margin-bottom: 1rem;">🎭 Arts Stream</h4>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="margin: 0.5rem 0;">• History</li>
+                                    <li style="margin: 0.5rem 0;">• Political Science</li>
+                                    <li style="margin: 0.5rem 0;">• Economics/Sociology</li>
+                                    <li style="margin: 0.5rem 0;">• English Core</li>
+                                    <li style="margin: 0.5rem 0;">• Optional Subject</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laboratories Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Modern Laboratories</h2>
+            <p class="section-subtitle loading">Hands-on learning with state-of-the-art facilities</p>
+            
+            <div class="labs-gallery">
+                <div class="lab-item glass loading">
+                    <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">🔬</span>
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Science Laboratories</h3>
+                    <p style="opacity: 0.9;">Well-equipped Physics, Chemistry, and Biology labs with modern instruments and safety equipment for practical learning.</p>
+                </div>
+                
+                <div class="lab-item glass loading">
+                    <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">💻</span>
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Computer Lab</h3>
+                    <p style="opacity: 0.9;">Advanced computer laboratory with high-speed internet, latest software, and individual workstations for each student.</p>
+                </div>
+                
+                <div class="lab-item glass loading">
+                    <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">📚</span>
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Library & Resource Center</h3>
+                    <p style="opacity: 0.9;">Extensive collection of books, digital resources, and reading areas to promote research and self-study habits.</p>
+                </div>
+                
+                <div class="lab-item glass loading">
+                    <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">🎨</span>
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Art & Craft Studio</h3>
+                    <p style="opacity: 0.9;">Creative space with materials and tools for drawing, painting, sculpture, and various craft activities.</p>
+                </div>
+                
+                <div class="lab-item glass loading">
+                    <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">🎭</span>
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Language Lab</h3>
+                    <p style="opacity: 0.9;">Specialized facility for language learning with audio-visual equipment and interactive software for pronunciation practice.</p>
+                </div>
+                
+                <div class="lab-item glass loading">
+                    <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">🎵</span>
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Music Room</h3>
+                    <p style="opacity: 0.9;">Well-equipped music room with various instruments, recording facilities, and space for choir and band practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Academic Achievements</h2>
+            <p class="section-subtitle loading">Proud moments that inspire us to excel further</p>
+            
+            <div class="achievements-container loading">
+                <div class="achievement-badge">
+                    <span>🏆</span> 100% Board Results (Last 5 Years)
+                </div>
+                
+                <div class="achievement-badge">
+                    <span>🥇</span> District Topper 2024
+                </div>
+                
+                <div class="achievement-badge">
+                    <span>🎖️</span> State Level Science Olympiad Winners
+                </div>
+                
+                <div class="achievement-badge">
+                    <span>📚</span> Best School Library Award
+                </div>
+                
+                <div class="achievement-badge">
+                    <span>💻</span> National IT Competition Winners
+                </div>
+                
+                <div class="achievement-badge">
+                    <span>🎭</span> Inter-School Cultural Champions
+                </div>
+                
+                <div class="achievement-badge">
+                    <span>🔬</span> Science Exhibition Excellence
+                </div>
+                
+                <div class="achievement-badge">
+                    <span>🎓</span> 50+ Students in IIT/NIT
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container">
+            <div class="glass text-center loading" style="padding: 4rem 2rem;">
+                <h2 style="margin-bottom: 1rem;">Ready to Start Your Academic Journey?</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Join our community of learners and achievers. Admissions open for all classes.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                        Apply Now
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bethel Mission School</h3>
+                    <p>Lighted to Lighten - Nurturing minds, building character since 1986.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admission.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 Anuppur, Madhya Pradesh, India</li>
+                        <li>📞 +91 12345 67890</li>
+                        <li>✉️ info@bethelschoolanuppur.edu.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get latest updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bethel Mission School, Anuppur. All rights reserved. Made with ❤️ by Creda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
