@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Bethel Mission School, Anuppur</title>
+    <meta name="description" content="Admission information and process for Bethel Mission School. Apply now for the academic year 2026-27.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Admissions - Bethel Mission School, Anuppur">
+    <meta property="og:description" content="Join our community of excellence. Admissions open for 2026-27">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .admission-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+        
+        .timeline-step {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-content {
+            flex: 1;
+            padding: 1.5rem;
+        }
+        
+        .step-content h3 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-content::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 60px;
+            bottom: -60px;
+            width: 2px;
+            background: var(--glass-light);
+            z-index: 1;
+        }
+        
+        .timeline-step:last-child .step-content::before {
+            display: none;
+        }
+        
+        .accordion {
+            margin: 3rem 0;
+        }
+        
+        .accordion-item {
+            margin: 1rem 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            padding: 1.5rem;
+            background: var(--glass-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--trans);
+        }
+        
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .accordion-header h3 {
+            color: var(--white);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform var(--trans);
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--trans);
+            background: var(--glass-dark);
+        }
+        
+        .accordion-content-inner {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        
+        .fee-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .fee-card {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .fee-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .fee-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 1rem 0;
+        }
+        
+        .fee-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .fee-features li {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 3rem 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .step-content::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>Bethel Mission School</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="navHome">Home</a></li>
+                <li><a href="about.html" data-translate="navAbout">About</a></li>
+                <li><a href="academics.html" data-translate="navAcademics">Academics</a></li>
+                <li><a href="admission.html" data-translate="navAdmissions">Admissions</a></li>
+                <li><a href="gallery.html" data-translate="navGallery">Gallery</a></li>
+                <li><a href="blog.html" data-translate="navEvents">Events</a></li>
+                <li><a href="contact.html" data-translate="navContact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-tools">
+                <button class="theme-toggle glass" aria-label="Toggle theme">
+                    <span>🌙</span>
+                </button>
+                <button class="lang-toggle btn btn-outline" data-translate="langToggle">
+                    HI
+                </button>
+                <a href="#application-form" class="btn btn-primary" data-translate="applyNow">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1 class="hero-title">Admissions Open</h1>
+            <p class="hero-subtitle">Academic Year 2026-27</p>
+            
+            <div class="hero-card glass" style="max-width: 600px;">
+                <p>Join our community of excellence where every child discovers their potential. We welcome applications from students who are eager to learn, grow, and make a difference in the world.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                    <a href="#application-form" class="btn btn-primary">
+                        Start Application
+                    </a>
+                    <a href="#prospectus" class="btn btn-outline">
+                        Download Prospectus
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Timeline -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Admission Process</h2>
+            <p class="section-subtitle loading">Simple steps to join our community</p>
+            
+            <div class="admission-timeline">
+                <div class="timeline-step loading">
+                    <div class="step-number">1</div>
+                    <div class="step-content glass">
+                        <h3>Submit Application</h3>
+                        <p>Fill out the online application form with all required documents. Application fee: ₹500 (non-refundable).</p>
+                        <p><strong>Deadline:</strong> March 31, 2026</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step loading">
+                    <div class="step-number">2</div>
+                    <div class="step-content glass">
+                        <h3>Entrance Assessment</h3>
+                        <p>Students will undergo a comprehensive assessment to evaluate academic readiness and learning potential.</p>
+                        <p><strong>Assessment Date:</strong> April 15-20, 2026</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step loading">
+                    <div class="step-number">3</div>
+                    <div class="step-content glass">
+                        <h3>Interaction Session</h3>
+                        <p>Personal interaction with the student and parents to understand goals and expectations.</p>
+                        <p><strong>Interaction Dates:</strong> April 25-30, 2026</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step loading">
+                    <div class="step-number">4</div>
+                    <div class="step-content glass">
+                        <h3>Admission Offer</h3>
+                        <p>Successful candidates will receive admission offers with detailed fee structure and enrollment instructions.</p>
+                        <p><strong>Result Declaration:</strong> May 5, 2026</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step loading">
+                    <div class="step-number">5</div>
+                    <div class="step-content glass">
+                        <h3>Fee Payment & Enrollment</h3>
+                        <p>Complete the admission process by paying the fees and submitting required documents.</p>
+                        <p><strong>Last Date:</strong> May 20, 2026</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step loading">
+                    <div class="step-number">6</div>
+                    <div class="step-content glass">
+                        <h3>Academic Session Begins</h3>
+                        <p>Welcome to Bethel Mission School! New academic session starts with orientation and induction programs.</p>
+                        <p><strong>Session Start:</strong> June 15, 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fee Structure -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Fee Structure</h2>
+            <p class="section-subtitle loading">Transparent and competitive pricing for quality education</p>
+            
+            <div class="fee-structure">
+                <div class="fee-card glass loading">
+                    <h3>Primary (I-V)</h3>
+                    <div class="fee-amount">₹45,000</div>
+                    <p style="opacity: 0.8; margin-bottom: 1.5rem;">Per Annum</p>
+                    <ul class="fee-features">
+                        <li>✓ Tuition Fees</li>
+                        <li>✓ Library Access</li>
+                        <li>✓ Basic Sports Facilities</li>
+                        <li>✓ Computer Lab Usage</li>
+                        <li>✓ Annual Functions</li>
+                    </ul>
+                </div>
+                
+                <div class="fee-card glass loading">
+                    <h3>Secondary (VI-X)</h3>
+                    <div class="fee-amount">₹55,000</div>
+                    <p style="opacity: 0.8; margin-bottom: 1.5rem;">Per Annum</p>
+                    <ul class="fee-features">
+                        <li>✓ All Primary Features</li>
+                        <li>✓ Science Laboratories</li>
+                        <li>✓ Advanced Computer Training</li>
+                        <li>✓ Career Counseling</li>
+                        <li>✓ Educational Tours</li>
+                    </ul>
+                </div>
+                
+                <div class="fee-card glass loading">
+                    <h3>Senior Secondary (XI-XII)</h3>
+                    <div class="fee-amount">₹65,000</div>
+                    <p style="opacity: 0.8; margin-bottom: 1.5rem;">Per Annum</p>
+                    <ul class="fee-features">
+                        <li>✓ All Secondary Features</li>
+                        <li>✓ Specialized Labs</li>
+                        <li>✓ Entrance Exam Coaching</li>
+                        <li>✓ College Admission Guidance</li>
+                        <li>✓ Internship Opportunities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="glass" style="padding: 2rem; margin-top: 2rem; text-align: center;">
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Additional Information</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left;">
+                    <div>
+                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">One-Time Payments</h4>
+                        <ul style="list-style: none; padding: 0; opacity: 0.9;">
+                            <li>• Admission Fee: ₹10,000</li>
+                            <li>• Security Deposit: ₹5,000 (refundable)</li>
+                            <li>• Annual Charges: ₹3,000</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--white); margin-bottom: 0.5rem;">Payment Options</h4>
+                        <ul style="list-style: none; padding: 0; opacity: 0.9;">
+                            <li>• Quarterly Installments</li>
+                            <li>• Online Payment Portal</li>
+                            <li>• Bank Transfer Facility</li>
+                            <li>• Scholarship Programs Available</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Frequently Asked Questions</h2>
+            <p class="section-subtitle loading">Get answers to common admission queries</p>
+            
+            <div class="accordion">
+                <div class="accordion-item loading">
+                    <div class="accordion-header">
+                        <h3>What is the age criteria for admission?</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>The age criteria for different classes are as follows:</p>
+                            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                                <li>Class I: 5+ years as on June 1</li>
+                                <li>Class VI: 10+ years as on June 1</li>
+                                <li>Class XI: 15+ years as on June 1</li>
+                            </ul>
+                            <p>Age relaxation of up to 6 months may be considered in exceptional cases.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item loading">
+                    <div class="accordion-header">
+                        <h3>What documents are required for admission?</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>The following documents are required:</p>
+                            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                                <li>Birth Certificate (original + photocopy)</li>
+                                <li>Transfer Certificate from previous school</li>
+                                <li>Mark sheets of last two years</li>
+                                <li>Character Certificate</li>
+                                <li>Passport size photographs (6 copies)</li>
+                                <li>Parent/Guardian ID proof</li>
+                                <li>Address proof</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item loading">
+                    <div class="accordion-header">
+                        <h3>Is there an entrance exam?</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Yes, we conduct a comprehensive assessment to evaluate:</p>
+                            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                                <li>Academic readiness and basic concepts</li>
+                                <li>Logical reasoning and problem-solving skills</li>
+                                <li>Language proficiency (English and Hindi)</li>
+                                <li>General awareness and aptitude</li>
+                            </ul>
+                            <p>The assessment is designed to understand the student's learning potential rather than just academic knowledge.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item loading">
+                    <div class="accordion-header">
+                        <h3>Do you offer scholarships?</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Yes, we offer various scholarship programs:</p>
+                            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                                <li>Merit-based scholarships (up to 50% fee waiver)</li>
+                                <li>Need-based financial assistance</li>
+                                <li>Sports excellence scholarships</li>
+                                <li>Cultural and artistic talent scholarships</li>
+                                <li>Sibling concession (10% for second child)</li>
+                            </ul>
+                            <p>Scholarship applications are reviewed separately after admission confirmation.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item loading">
+                    <div class="accordion-header">
+                        <h3>What is the student-teacher ratio?</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>We maintain optimal student-teacher ratios to ensure personalized attention:</p>
+                            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                                <li>Primary Classes (I-V): 25:1</li>
+                                <li>Secondary Classes (VI-X): 30:1</li>
+                                <li>Senior Secondary (XI-XII): 25:1</li>
+                            </ul>
+                            <p>Additional support staff and subject specialists are available for specialized learning needs.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item loading">
+                    <div class="accordion-header">
+                        <h3>What facilities are available for students?</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Our students have access to comprehensive facilities:</p>
+                            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                                <li>Modern science and computer laboratories</li>
+                                <li>Well-stocked library and resource center</li>
+                                <li>Sports facilities including playground and indoor games</li>
+                                <li>Art and craft studios</li>
+                                <li>Music and dance rooms</li>
+                                <li>Medical room with qualified nurse</li>
+                                <li>Cafeteria with nutritious meals</li>
+                                <li>Transportation facility (optional)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section id="application-form" class="section">
+        <div class="container">
+            <h2 class="section-title loading">Apply Now</h2>
+            <p class="section-subtitle loading">Start your journey with us today</p>
+            
+            <div class="glass" style="max-width: 600px; margin: 0 auto; padding: 3rem 2rem;">
+                <form id="admission-form">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="student-name" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Student's Full Name *</label>
+                        <input type="text" id="student-name" name="studentName" required style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white);">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="dob" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Date of Birth *</label>
+                        <input type="date" id="dob" name="dob" required style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white);">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="class" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Applying for Class *</label>
+                        <select id="class" name="class" required style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white);">
+                            <option value="">Select Class</option>
+                            <option value="1">Class I</option>
+                            <option value="2">Class II</option>
+                            <option value="3">Class III</option>
+                            <option value="4">Class IV</option>
+                            <option value="5">Class V</option>
+                            <option value="6">Class VI</option>
+                            <option value="7">Class VII</option>
+                            <option value="8">Class VIII</option>
+                            <option value="9">Class IX</option>
+                            <option value="10">Class X</option>
+                            <option value="11">Class XI</option>
+                            <option value="12">Class XII</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="parent-name" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Parent/Guardian Name *</label>
+                        <input type="text" id="parent-name" name="parentName" required style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white);">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Email Address *</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white);">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="phone" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white);">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="address" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Address</label>
+                        <textarea id="address" name="address" rows="3" style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white); resize: vertical;"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="previous-school" style="display: block; margin-bottom: 0.5rem; color: var(--white);">Previous School (if applicable)</label>
+                        <input type="text" id="previous-school" name="previousSchool" style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius); background: var(--glass-light); color: var(--white);">
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--white);">
+                            <input type="checkbox" required style="width: 18px; height: 18px;">
+                            <span>I agree to the terms and conditions and privacy policy *</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prospectus Download -->
+    <section id="prospectus" class="section">
+        <div class="container">
+            <div class="download-section glass loading">
+                <h2 style="margin-bottom: 1rem;">Download Prospectus</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.9;">Get detailed information about our school, programs, facilities, and admission procedures.</p>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="downloadProspectus()">
+                        📄 Download PDF (5MB)
+                    </button>
+                    <button class="btn btn-outline" onclick="requestBrochure()">
+                        📧 Request Printed Brochure
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bethel Mission School</h3>
+                    <p>Lighted to Lighten - Nurturing minds, building character since 1986.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admission.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 Anuppur, Madhya Pradesh, India</li>
+                        <li>📞 +91 12345 67890</li>
+                        <li>✉️ info@bethelschoolanuppur.edu.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get latest updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bethel Mission School, Anuppur. All rights reserved. Made with ❤️ by Creda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Prospectus download functions
+        function downloadProspectus() {
+            // Simulate PDF download
+            const link = document.createElement('a');
+            link.href = '#';
+            link.download = 'Bethel-Mission-School-Prospectus-2026-27.pdf';
+            link.click();
+            
+            // Show notification
+            showNotification('Prospectus download started!', 'success');
+        }
+        
+        function requestBrochure() {
+            showNotification('Printed brochure will be sent to your registered address', 'info');
+        }
+        
+        // Form submission
+        document.getElementById('admission-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                showNotification('Application submitted successfully! We will contact you soon.', 'success');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bethel Mission School, Anuppur</title>
+    <meta name="description" content="Get in touch with Bethel Mission School. Find our location, contact details, and send us your queries.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact Us - Bethel Mission School, Anuppur">
+    <meta property="og:description" content="Contact information and location details for Bethel Mission School">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            transition: all var(--trans);
+            cursor: pointer;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--glass-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h3 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-details p {
+            opacity: 0.9;
+            margin: 0.25rem 0;
+        }
+        
+        .contact-form {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: var(--radius);
+            background: var(--glass-light);
+            color: var(--white);
+            font-size: var(--font-size-base);
+            transition: all var(--trans);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.60);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .map-container {
+            margin: 3rem 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .social-contact {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .social-contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--glass-light);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all var(--trans);
+        }
+        
+        .social-contact a:hover {
+            background: var(--glass-blue);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .working-hours {
+            margin: 2rem 0;
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .hours-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        }
+        
+        .hours-table td:first-child {
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .hours-table td:last-child {
+            text-align: right;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>Bethel Mission School</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="navHome">Home</a></li>
+                <li><a href="about.html" data-translate="navAbout">About</a></li>
+                <li><a href="academics.html" data-translate="navAcademics">Academics</a></li>
+                <li><a href="admission.html" data-translate="navAdmissions">Admissions</a></li>
+                <li><a href="gallery.html" data-translate="navGallery">Gallery</a></li>
+                <li><a href="blog.html" data-translate="navEvents">Events</a></li>
+                <li><a href="contact.html" data-translate="navContact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-tools">
+                <button class="theme-toggle glass" aria-label="Toggle theme">
+                    <span>🌙</span>
+                </button>
+                <button class="lang-toggle btn btn-outline" data-translate="langToggle">
+                    HI
+                </button>
+                <a href="admission.html" class="btn btn-primary" data-translate="applyNow">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1 class="hero-title">Contact Us</h1>
+            <p class="hero-subtitle">We're Here to Help You</p>
+            
+            <div class="hero-card glass" style="max-width: 600px;">
+                <p>Have questions about admissions, academics, or our facilities? We'd love to hear from you. Reach out through any of the channels below, and our team will get back to you promptly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Details -->
+                <div class="contact-info">
+                    <h2 class="section-title loading" style="text-align: left; margin-bottom: 2rem;">Get in Touch</h2>
+                    
+                    <div class="contact-item glass loading" onclick="copyToClipboard('info@bethelschoolanuppur.edu.in')">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <p>info@bethelschoolanuppur.edu.in</p>
+                            <p style="opacity: 0.7; font-size: 0.9rem;">Click to copy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass loading" onclick="copyToClipboard('+91 12345 67890')">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Phone Numbers</h3>
+                            <p>+91 12345 67890 (Office)</p>
+                            <p>+91 98765 43210 (Principal)</p>
+                            <p style="opacity: 0.7; font-size: 0.9rem;">Click to copy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass loading">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Address</h3>
+                            <p>Bethel Mission School</p>
+                            <p>Anuppur, Madhya Pradesh</p>
+                            <p>India - 484224</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item glass loading">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-details">
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 8:00 AM - 4:00 PM</p>
+                            <p>Saturday: 9:00 AM - 1:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Working Hours Table -->
+                    <div class="glass loading" style="padding: 2rem; margin-top: 2rem;">
+                        <h3 style="color: var(--white); margin-bottom: 1.5rem;">School Timings</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Primary (I-V)</td>
+                                <td>8:30 AM - 1:30 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Secondary (VI-X)</td>
+                                <td>8:30 AM - 2:30 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Senior Secondary (XI-XII)</td>
+                                <td>8:30 AM - 3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>8:30 AM - 12:30 PM</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form glass loading">
+                    <h2 style="color: var(--white); margin-bottom: 2rem;">Send us a Message</h2>
+                    
+                    <form id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 12345 67890">
+                            </div>
+                            <div class="form-group">
+                                <label for="inquiryType">Inquiry Type *</label>
+                                <select id="inquiryType" name="inquiryType" required>
+                                    <option value="">Select inquiry type</option>
+                                    <option value="admission">Admission Inquiry</option>
+                                    <option value="academic">Academic Information</option>
+                                    <option value="fee">Fee Structure</option>
+                                    <option value="transport">Transportation</option>
+                                    <option value="general">General Information</option>
+                                    <option value="feedback">Feedback/Suggestion</option>
+                                    <option value="complaint">Complaint</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Brief description of your inquiry">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Please provide detailed information about your inquiry..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--white);">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span>Subscribe to our newsletter for updates</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Find Us on Map</h2>
+            <p class="section-subtitle loading">Visit our beautiful campus in Anuppur</p>
+            
+            <div class="map-container glass loading">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.892123456789!2d81.12345678901234!3d23.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA3JzI0LjQiTiA4McKwMDcnMjQuMiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Contact -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title loading">Connect With Us</h2>
+            <p class="section-subtitle loading">Follow us on social media for regular updates</p>
+            
+            <div class="social-contact">
+                <a href="#" aria-label="Facebook" title="Facebook">📘</a>
+                <a href="#" aria-label="Twitter" title="Twitter">🐦</a>
+                <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+                <a href="#" aria-label="YouTube" title="YouTube">📺</a>
+                <a href="#" aria-label="WhatsApp" title="WhatsApp">💬</a>
+                <a href="#" aria-label="LinkedIn" title="LinkedIn">💼</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-3">
+                <div class="card glass text-center loading">
+                    <span class="card-icon">📚</span>
+                    <h3 class="card-title">Admissions Open</h3>
+                    <p class="card-text">Apply now for the academic year 2026-27. Limited seats available!</p>
+                    <a href="admission.html" class="btn btn-primary mt-md">Apply Now</a>
+                </div>
+                
+                <div class="card glass text-center loading">
+                    <span class="card-icon">📅</span>
+                    <h3 class="card-title">Schedule Visit</h3>
+                    <p class="card-text">Book a campus tour to experience our facilities and meet our team.</p>
+                    <button class="btn btn-outline mt-md" onclick="scheduleVisit()">Book Tour</button>
+                </div>
+                
+                <div class="card glass text-center loading">
+                    <span class="card-icon">📞</span>
+                    <h3 class="card-title">Quick Query</h3>
+                    <p class="card-text">Have a quick question? Call us directly for immediate assistance.</p>
+                    <a href="tel:+911234567890" class="btn btn-secondary mt-md">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Bethel Mission School</h3>
+                    <p>Lighted to Lighten - Nurturing minds, building character since 1986.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="YouTube">📺</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admission.html">Admissions</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 Anuppur, Madhya Pradesh, India</li>
+                        <li>📞 +91 12345 67890</li>
+                        <li>✉️ info@bethelschoolanuppur.edu.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get latest updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bethel Mission School, Anuppur. All rights reserved. Made with ❤️ by Creda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification(`${text} copied to clipboard!`, 'success');
+            }).catch(() => {
+                showNotification('Unable to copy to clipboard', 'error');
+            });
+        }
+        
+        // Schedule visit function
+        function scheduleVisit() {
+            showNotification('Campus tour booking form would open here', 'info');
+        }
+        
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                showNotification('Message sent successfully! We will get back to you soon.', 'success');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        // Auto-resize textarea
+        const textarea = document.getElementById('message');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.max(120, this.scrollHeight) + 'px';
+        });
+        
+        // Form field animations
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            field.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
